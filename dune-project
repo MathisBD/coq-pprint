@@ -12,6 +12,7 @@
 
 (package
  (name coq-pprint)
+ (license MIT)
  (maintainers "Mathis Bouverot-Dupuis (mathis.bouverot@ens.psl.eu)")
  (authors "Mathis Bouverot-Dupuis")
  (homepage "https://github.com/MathisBD/coq-pprint")
