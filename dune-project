@@ -22,4 +22,4 @@
   "A combinator pretty-printing library, in the style of Wadler's \"A Prettier Printer\".\n- Handles utf-8 strings.\n- Supports generic _annotations_ on text (colors, italics, etc).\n- Well documented.")
  (depends
   (coq
-   (>= 8.20.0))))
+   (>= dev))))
