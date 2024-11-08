@@ -12,7 +12,7 @@ license: "MIT"
 homepage: "https://github.com/MathisBD/coq-pprint"
 bug-reports: "https://github.com/MathisBD/coq-pprint/issues"
 depends: [
-  "dune" {>= "3.16"}
+  "dune" {>= "3.13"}
   "coq" {>= "dev"}
   "odoc" {with-doc}
 ]

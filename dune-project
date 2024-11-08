@@ -1,6 +1,6 @@
-(lang dune 3.16)
+(lang dune 3.13)
 
-(using coq 0.9)
+(using coq 0.8)
 
 (name coq-pprint)
 
