@@ -4,9 +4,6 @@ Import ListNotations.
 (** Start by importing PPrint. *)
 From PPrint Require Import All.
 
-(** PPrint is based on primitive strings. *)
-Open Scope pstring.
-
 (** We will use PPrint to pretty-print expressions which consist of :
     - natural numbers [ENat]
     - variables [EVar]
