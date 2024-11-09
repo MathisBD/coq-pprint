@@ -50,14 +50,16 @@ Compute pp_string 10 (separate space sentence).
     The `ifflat x y` combinator can be used to print a document differently depending on the current mode. 
     `ifflat x y` is printed as `x` in flat mode and as `y` in normal mode. 
     
-    By default the rendering engine is in normal mode. The `group x` combinator 
-    introduces a choice point : `x` is printed in flat mode if it fits on the current line, 
-    and in normal mode otherwise.  *)
+    The `group x` combinator introduces a choice point : `x` is printed in flat mode 
+    if it fits on the current line, and in normal mode otherwise. 
+    
+    By default the rendering engine is in normal mode. Once in flat mode, 
+    there is no possibility to return to normal mode, and all `group`s are ignored. *)
 Definition breakable_doc : doc unit := 
   group (str "I am a" ^^ ifflat space hardline ^^ str "breakable" ^^ 
          ifflat space hardline ^^ str "document").
-Compute pp_string 80 breakable_doc.
-Compute pp_string 20 breakable_doc.
+Compute pp_string 80 breakable_doc. (** The document fits on the current line and is printed in flat mode. *)
+Compute pp_string 20 breakable_doc. (** The document does not fit and is printed in normal mode. *)
 (** In fact the document `ifflat space hardline` is so common that it is 
     abbreviated as `break 0`. *)
 
@@ -65,21 +67,25 @@ Compute pp_string 20 breakable_doc.
 Compute pp_string 20 (group (separate (break 0) sentence)).
 (** This is not quite what we wanted : all words are on a separate line ! 
     This is because we used a single `group` : either we have only spaces, or only newlines.
-    Instead we should a different `group` for each word. This is exactly what `flow` does : *)
+    Instead we should have a different `group` for each word. This is exactly what `flow` does : *)
 Compute pp_string 20 (flow (break 0) sentence).
 Compute pp_string 40 (flow (break 0) sentence).
 Compute pp_string 80 (flow (break 0) sentence).
 
 (** * Indentation. *)
 
+
+
 (** * Annotations. *)
+
+(** * Writing a custom backend. *)
 
 (*- what are documents
 
 !! it is not recommended to use the constructors of [doc] directly.
 
 - adapting to page width : ifflat & group
-two main printing modes : flat and normal.
+two printing modes : flat and normal.
 
 - handling indentation : nest & align
 there is an implicit "indentation level" [n] : after each newline, 

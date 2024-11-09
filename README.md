@@ -1,6 +1,6 @@
 # Quick Start
-
-Check out the [tutorial](https://github.com/MathisBD/coq-pprint/blob/master/tutorial/Tutorial.v).
+ 
+For a quick introduction read the [quick-start](https://github.com/MathisBD/coq-pprint/blob/master/tutorials/QuickStart.v). For a gentle introduction to the features of coq-pprint read the [tutorial](https://github.com/MathisBD/coq-pprint/blob/master/tutorials/Tutorial.v).
 
 # What is coq-pprint ?
 
