@@ -166,7 +166,7 @@ Definition hardline : doc A := HardLine.
 Definition softline : doc A := IfFlat (Width 0) Empty HardLine.
 
 (** The atomic document [blank n] consists of [n] blank characters. *)
-Definitfion blank n : doc A := 
+Definition blank n : doc A := 
   match n with 
   | 0 => Empty
   | _ => Blank n
