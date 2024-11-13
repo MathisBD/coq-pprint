@@ -28,7 +28,7 @@ Fixpoint print_expr (e : expr) : doc unit :=
   end.
 (** Most document combinators are straightfoward :
     - [nat10 n] prints [n] in base 10
-    - [str s] print the primitive string [s]
+    - [str s] prints the primitive string [s]
     - [separate sep docs] concatenates the documents in [docs] with a separator [sep] *)
 
 (** Use [pp_string] to print a document to a string (ignoring all annotations).

@@ -28,6 +28,9 @@ Definition add_requirements (r1 r2 : requirement) : requirement :=
 
 (** * Documents. *)
 
+(** Beware : directly using the constructors of [doc] is not recommended.
+    Use the combinators below instead. *)
+
 (** The type of documents, which depends on the type of annotations.
     The only construct which actually uses annotations is [Annot]. *)
 Inductive doc (A : Type) : Type :=   
@@ -215,9 +218,7 @@ Definition group d : doc A :=
   | req => Group req d
   end.
    
-(** Warning : most of the time you want to use [align] instead of [nest].
-
-    To render the document [nest n doc], the printing engine temporarily
+(** To render the document [nest n doc], the printing engine temporarily
     increases the current indentation level by [n], then renders [doc]. 
     The effect of the current indentation level is as follows: every time a
     newline character is emitted, it is immediately followed by [n] blank
