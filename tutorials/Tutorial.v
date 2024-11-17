@@ -3,6 +3,7 @@ Import ListNotations.
 
 (** Start by importing PPrint. *)
 From PPrint Require Import All.
+Open Scope pstring.
 
 (** * Documents. *)
 

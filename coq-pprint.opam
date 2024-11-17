@@ -13,7 +13,7 @@ homepage: "https://github.com/MathisBD/coq-pprint"
 bug-reports: "https://github.com/MathisBD/coq-pprint/issues"
 depends: [
   "dune" {>= "3.13"}
-  "coq" {>= "dev"}
+  "coq" {>= "8.20"}
   "odoc" {with-doc}
 ]
 build: [

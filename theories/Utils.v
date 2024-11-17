@@ -81,4 +81,14 @@ Definition utf8_length (str : string) : nat :=
   in
   loop 0%nat 0%int63 (Uint63.to_nat (PrimString.length str)).
       
-      
+(** [rev_map f l] reverses [l] and applies [f] to each element.
+    It has linear complexity. *)
+Definition rev_map {A B : Type} (f : A -> B) (l : list A) : list B :=
+  let fix loop l acc :=
+    match l with
+    | [] => acc
+    | x :: l => loop l (f x :: acc)
+    end
+  in
+  loop l [].
+        
