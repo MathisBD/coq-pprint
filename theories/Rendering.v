@@ -1,5 +1,6 @@
 From Coq Require Import List Uint63 PrimString.
-From PPrint Require Import Monad Documents.
+From Coq Require PrimStringAxioms.
+From PPrint Require Import Utils Monad Documents.
 Import ListNotations.
 Open Scope monad_scope.
 
@@ -127,6 +128,7 @@ Instance monad_pprint_ppstring {Ann : Type} : MonadPPrint Ann PPString :=
 
 (** [pp_string width d] pretty-prints the document [d] to a string, 
     ignoring all annotations. *)
-Definition pp_string {Ann} (width : nat) (d : doc Ann) : string :=
-  let '(_, output) := @ppM Ann PPString _ _ width d [] in
-  List.fold_left PrimString.cat (List.rev output) (PrimString.make 0 0%int63).
+Definition pp_string {Ann} (width : nat) (d : doc Ann) :=
+  let '(_, output) := @ppM _ PPString _ _  width d [] in 
+  (* Take care to concatenate the strings in linear time. *)
+  PrimStringAxioms.of_list (List.concat (rev_map PrimStringAxioms.to_list output)).
